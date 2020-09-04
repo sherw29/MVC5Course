@@ -1,0 +1,18 @@
+﻿@model Vidly.Models.Movie
+
+@{
+    ViewBag.Title = "MovieDetails";
+}
+
+<h2>MovieDetails</h2>
+<div>
+    <p>
+        <ul>Customer ID: @Model.Id</ul>
+        <ul>Customer Name: @Model.Name</ul>
+        <ul>Date of Birth: @Model.ReleaseDate.ToString("dd/MM/yyyy")</ul>
+        <ul>Membership ID: @Model.MovieGenreId</ul>
+    </p>
+    <a class="btn btn-info" href="@Url.Action("EditMovie",new { Model.Id })" role="button">Edit Profile</a>
+</div>
+
+

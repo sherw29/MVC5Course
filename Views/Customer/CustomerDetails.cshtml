@@ -1,0 +1,17 @@
+﻿@model Vidly.Models.Customer
+@{
+    ViewBag.Title = "CustomerDetails";
+}
+
+<h2>Customer Profile</h2>
+<div>
+    <p>
+        <ul>Customer ID: @Model.Id</ul>
+        <ul>Customer Name: @Model.Name</ul>
+        <ul>Date of Birth: @Model.DoB.ToString("dd/MM/yyyy")</ul>
+        <ul>Membership ID: @Model.MembershipTypeId</ul>
+    </p>
+    <a class="btn btn-info" href="@Url.Action("EditCustomer",new { Model.Id })" role="button">Edit Profile</a>
+</div>
+
+

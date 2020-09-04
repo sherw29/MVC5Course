@@ -1,0 +1,62 @@
+﻿@model Vidly.Models.MovieViewModel
+
+@{
+    ViewBag.Title = "MovieList";
+}
+
+<h2>Movie List</h2>
+<div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Movie Id</th>
+                <th scope="col">Movie Name</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Release Date</th>
+                <th scope="col">Date Added</th>
+                <th scope="col">Total Copies in stock</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model.Movies.Count == 0)
+            {
+                <tr>
+                    <th>No movies at the moment.</th>
+                </tr>
+            }
+
+            else
+            {
+
+                foreach (var item in Model.Movies)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>Genre</td>
+                        <td>@item.ReleaseDate.ToString("dd/MM/yyyy")</td>
+                        <td>@item.DateAdded.ToString("dd/MM/yyyy")</td>
+                        <td>@item.NumberInStock</td>
+
+                        <td>
+                            <a class="btn btn-dark" href="@Url.Action("MovieDetails",new { item.Id })" role="button">View Profile</a>
+                            <a class="btn btn-danger" href="@Url.Action("RemoveMovie",new{ item.Id})" role="button">Delete</a>
+                        </td>
+
+                    </tr>
+
+                }
+            }
+        </tbody>
+
+
+
+    </table>
+
+
+</div>
+
+

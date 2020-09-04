@@ -1,0 +1,36 @@
+﻿
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">VIDLY</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("CreateOrEditCustomer","Customer")">Customer Form</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("CustomerList","Customer")">Customers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("CreateOrEditMovie","Movie")">Add Movies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("MovieList","Movie")">Movie List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("New","Rentals")">Rental Form</a>
+                </li>
+
+            </ul>
+            <div>
+                @Html.Partial("_LoginPartial")
+            </div>
+                
+
+
+        </div>
+        
+    </nav>

@@ -1,0 +1,54 @@
+﻿@model Vidly.Models.NewCustomerViewModel
+
+@{
+    ViewBag.Title = "CreateOrEditCustomer";
+}
+
+
+<h2>Customer Form</h2>
+
+@using (Html.BeginForm("AddOrUpdateCustomer", "Customer"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.Customer.Id)
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.Name)
+        @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.Customer.Name, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.EmailId)
+        @Html.TextBoxFor(m => m.Customer.EmailId, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Customer.EmailId, "", new { @class = "text-danger" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.DoB)
+        @Html.TextBoxFor(m => m.Customer.DoB, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Customer.DoB, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.Address)
+        @Html.TextBoxFor(m => m.Customer.Address, new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.MembershipTypeId)
+        @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Customer.MembershipTypeId, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div class="checkbox">
+        @Html.EditorFor(model => model.Customer.IsSubscribedToNewsLetter)  Subscribed to Newsletter ?
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+
+}
